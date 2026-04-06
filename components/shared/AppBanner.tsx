@@ -48,7 +48,7 @@ function AppBanner() {
             delay: 0.1,
           }}
           className='text-2xl text-center font-general-semibold lg:text-3xl xl:text-4xl sm:text-left text-ternary-dark dark:text-primary-light'>
-          Hi, I am Rico 👋🏻
+          Hi, I&apos;m Rico.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -59,7 +59,18 @@ function AppBanner() {
             delay: 0.2,
           }}
           className='mt-4 text-sm leading-normal text-center text-gray-500 font-general-medium md:text-md lg:text-l xl:text-xl sm:text-left dark:text-gray-200'>
-          A Fullstack Engineer with a passion for building web applications and learning new technologies.
+          I&apos;m a fullstack engineer who builds things fast and ships them.
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            ease: 'easeInOut',
+            duration: 0.9,
+            delay: 0.3,
+          }}
+          className='mt-2 text-xs leading-normal text-center text-gray-400 font-general-regular md:text-sm lg:text-md sm:text-left dark:text-gray-400'>
+          ESA &middot; Klarna &middot; Henkel &middot; Open for work
         </motion.p>
         <ContactMeButton />
       </div>
