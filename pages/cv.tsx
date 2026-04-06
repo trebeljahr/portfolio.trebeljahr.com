@@ -193,8 +193,8 @@ export default function CVPage() {
             <p className={styles['cv-date']}>2019, rewritten 2026</p>
           </div>
           <p>
-            Full-stack multiplayer chess with real-time chat. Originally my first ever project (Meteor), rewritten to
-            Next.js + Express + Socket.io + MongoDB in 2 days.{' '}
+            Full-stack multiplayer chess with real-time chat. My very first project (originally Meteor), recently
+            revamped and modernized to Next.js + Express + Socket.io + MongoDB.{' '}
             <a href='https://github.com/trebeljahr/chess-app' className='hover-underline-animation'>
               github.com/trebeljahr/chess-app
             </a>

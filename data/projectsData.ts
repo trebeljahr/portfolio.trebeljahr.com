@@ -37,7 +37,7 @@ export const projectsData = [
   {
     title: 'Chess',
     url: 'https://github.com/trebeljahr/chess-app',
-    category: 'multiplayer chess · rewritten in 2 days with AI',
+    category: 'my very first project · recently revamped with a modern stack',
     img: '/images/chess.png',
   },
 

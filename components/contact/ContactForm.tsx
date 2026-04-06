@@ -12,7 +12,7 @@ export function ContactForm() {
   })
 
   const [emailIsSending, setEmailIsSending] = useState(false)
-  const form = useRef<HTMLFormElement>()
+  const form = useRef<HTMLFormElement>(null)
 
   useEffect(() => {
     const unsubscribe = toast.onChange((change) => {
