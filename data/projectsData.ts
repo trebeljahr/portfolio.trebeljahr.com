@@ -38,4 +38,10 @@ export const projectsData = [
     category: 'my chrome dinosaur game',
     img: '/images/raptor.png',
   },
+  {
+    title: 'conv3D',
+    url: 'https://github.com/trebeljahr/conv3d',
+    category: 'CLI tool for batch 3D model conversions',
+    img: '/images/conv3d.png',
+  },
 ]

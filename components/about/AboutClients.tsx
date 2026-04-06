@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 
 import { EsaLogo } from 'components/logos/EsaLogo'
+import { FlowkeyLogo } from 'components/logos/FlowkeyLogo'
+import { HenkelLogo } from 'components/logos/HenkelLogo'
 import { IronhackLogo } from 'components/logos/IronhackLogo'
 import { KlarnaLogo } from 'components/logos/KlarnaLogo'
 import { SoftgamesLogo } from 'components/logos/SoftgamesLogo'
@@ -14,17 +16,23 @@ export function AboutClients() {
             Companies I&apos;ve worked with
           </h2>
         </div>
-        <div className='mt-2 grid grid-cols-2 sm:grid-cols-4 sm:mt-5 gap-2'>
-          <div className='px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+        <div className='mt-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 sm:mt-5 gap-2'>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
             <EsaLogo />
           </div>
-          <div className='px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
             <KlarnaLogo />
           </div>
-          <div className='px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+            <HenkelLogo />
+          </div>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+            <FlowkeyLogo />
+          </div>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
             <IronhackLogo />
           </div>
-          <div className='px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
+          <div className='flex items-center justify-center px-5 py-1 mb-5 border rounded-lg shadow-lg bg-secondary-light border-ternary-light dark:border-ternary-dark'>
             <SoftgamesLogo />
           </div>
         </div>

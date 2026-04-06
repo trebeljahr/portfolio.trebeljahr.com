@@ -6,7 +6,11 @@ type Props = {
   description?: string
 }
 
-function PagesMetaHead({ title, keywords, description }: Props) {
+function PagesMetaHead({
+  title = "Rico Trebeljahr's Epic Portfolio",
+  keywords = 'next.js, react, web, ui',
+  description = "Take a peek at Rico Trebeljahr's portfolio webpage",
+}: Props) {
   return (
     <Head>
       <meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -17,12 +21,6 @@ function PagesMetaHead({ title, keywords, description }: Props) {
       <title>{title}</title>
     </Head>
   )
-}
-
-PagesMetaHead.defaultProps = {
-  title: "Rico Trebeljahr's Epic Portfolio",
-  keywords: 'next.js, react, web, ui',
-  description: "Take a peek at Rico Trebeljahr's portfolio webpage",
 }
 
 export default PagesMetaHead
