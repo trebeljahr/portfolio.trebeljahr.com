@@ -16,7 +16,7 @@ function AppFooterCopyright() {
         <Link
           href='/imprint'
           className='hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 duration-500'>
-          Legal Notice
+          Imprint
         </Link>
       </div>
     </div>

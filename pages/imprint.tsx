@@ -4,7 +4,7 @@ import PagesMetaHead from '../components/PagesMetaHead'
 export default function ImprintPage() {
   return (
     <>
-      <PagesMetaHead title='Legal Notice | Rico Trebeljahr' />
+      <PagesMetaHead title='Imprint | Rico Trebeljahr' />
       <div className='container mx-auto max-w-3xl px-4 py-20 font-general-regular'>
         <p className='mb-6'>
           <Link
@@ -14,7 +14,7 @@ export default function ImprintPage() {
           </Link>
         </p>
         <h1 className='text-3xl sm:text-4xl font-general-medium text-primary-dark dark:text-primary-light mb-8'>
-          Legal Notice
+          Imprint
         </h1>
 
         <p className='text-lg text-ternary-dark dark:text-ternary-light mb-8'>
