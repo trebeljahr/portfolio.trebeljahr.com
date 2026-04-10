@@ -1,6 +1,8 @@
+import Link from 'next/link'
+
 function AppFooterCopyright() {
   return (
-    <div className='flex items-center justify-center text-center font-general-regular'>
+    <div className='flex flex-col items-center justify-center text-center font-general-regular gap-2'>
       <div className='text-lg text-ternary-dark dark:text-ternary-light'>
         &copy; {new Date().getFullYear()}.{' '}
         <a
@@ -9,6 +11,13 @@ function AppFooterCopyright() {
           className='ml-1 font-medium uppercase text-secondary-dark dark:text-secondary-light hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 duration-500'>
           Rico Trebeljahr
         </a>
+      </div>
+      <div className='text-sm text-ternary-dark dark:text-ternary-light'>
+        <Link
+          href='/imprint'
+          className='hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 duration-500'>
+          Legal Notice
+        </Link>
       </div>
     </div>
   )
