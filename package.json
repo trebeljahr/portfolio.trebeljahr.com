@@ -44,6 +44,8 @@
     "analyze": "ANALYZE=true next build --webpack",
     "start": "next start",
     "generateExports": "ts-node-esm ./scripts/codeGenExports.mts",
+    "seo:generate": "node scripts/generate-seo.mjs",
+    "prebuild": "node scripts/generate-seo.mjs",
     "format": "biome format --write .",
     "check": "biome check --write .",
     "prepare": "husky"

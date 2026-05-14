@@ -10,6 +10,8 @@ export default function CVPage() {
         title="Resume | Rico Trebeljahr"
         description="Rico Trebeljahr's full-stack engineering resume with production experience, selected projects, and contact links."
         path="/cv"
+        image="/images/profile.jpg"
+        imageAlt="Portrait of Rico Trebeljahr"
       />
       <div id="cv" className={styles["cv-container"]}>
         <div className={styles["cv-header"]}>

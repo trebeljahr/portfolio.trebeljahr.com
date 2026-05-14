@@ -8,6 +8,8 @@ export default function ImprintPage() {
         title="Imprint | Rico Trebeljahr"
         description="Legal notice and contact information for the Rico Trebeljahr portfolio website."
         path="/imprint"
+        image="/images/profile.jpg"
+        imageAlt="Portrait of Rico Trebeljahr"
       />
       <div className="container mx-auto max-w-3xl px-4 py-20 font-general-regular">
         <p className="mb-6">

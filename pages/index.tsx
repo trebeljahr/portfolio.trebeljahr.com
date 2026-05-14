@@ -12,6 +12,8 @@ export default function Home() {
       <PagesMetaHead
         title="Rico Trebeljahr - Full-Stack Engineer Portfolio"
         description="Explore Rico Trebeljahr's full-stack engineering portfolio: web games, 3D demos, production systems, writing, and contact details."
+        image="/images/profile.jpg"
+        imageAlt="Portrait of Rico Trebeljahr"
       />
       <AppBanner />
 

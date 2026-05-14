@@ -6,12 +6,16 @@ type Props = {
   description?: string;
   path?: string;
   image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   robots?: string;
 };
 
 const siteUrl = "https://portfolio.trebeljahr.com";
 const siteName = "Rico Trebeljahr Portfolio";
-const defaultImage = "/icons/share.png";
+const defaultImage = "/images/profile.jpg";
+const defaultImageAlt = "Portrait of Rico Trebeljahr";
 
 function PagesMetaHead({
   title = "Rico Trebeljahr - Full-Stack Engineer",
@@ -19,10 +23,13 @@ function PagesMetaHead({
   description = "Full-stack engineer portfolio for Rico Trebeljahr, featuring web games, 3D demos, production engineering work, and contact details.",
   path = "/",
   image = defaultImage,
+  imageAlt = defaultImageAlt,
+  imageWidth = 2500,
+  imageHeight = 2500,
   robots = "index,follow",
 }: Props) {
-  const canonicalUrl = `${siteUrl}${path}`;
-  const imageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
+  const canonicalUrl = new URL(path, siteUrl).toString();
+  const imageUrl = new URL(image, siteUrl).toString();
 
   return (
     <Head>
@@ -39,10 +46,16 @@ function PagesMetaHead({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      <meta property="og:image:width" content={String(imageWidth)} />
+      <meta property="og:image:height" content={String(imageHeight)} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:locale" content="en_US" />
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@ricotrebeljahr" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      <meta name="twitter:image:alt" content={imageAlt} />
       <title>{title}</title>
     </Head>
   );
