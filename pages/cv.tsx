@@ -6,7 +6,11 @@ import styles from "../styles/cv.module.css";
 export default function CVPage() {
   return (
     <>
-      <PagesMetaHead title="Resume | Rico Trebeljahr" />
+      <PagesMetaHead
+        title="Resume | Rico Trebeljahr"
+        description="Rico Trebeljahr's full-stack engineering resume with production experience, selected projects, and contact links."
+        path="/cv"
+      />
       <div id="cv" className={styles["cv-container"]}>
         <div className={styles["cv-header"]}>
           <Image

@@ -9,7 +9,10 @@ import AppBanner from "../components/shared/AppBanner";
 export default function Home() {
   return (
     <div className="container mx-auto">
-      <PagesMetaHead title="Portfolio | Rico Trebeljahr" />
+      <PagesMetaHead
+        title="Rico Trebeljahr - Full-Stack Engineer Portfolio"
+        description="Explore Rico Trebeljahr's full-stack engineering portfolio: web games, 3D demos, production systems, writing, and contact details."
+      />
       <AppBanner />
 
       <AboutMeBio />

@@ -1,6 +1,7 @@
 {
-  "name": "R3F Next Starter",
-  "short_name": "R3F Next Starter",
+  "name": "Rico Trebeljahr Portfolio",
+  "short_name": "Rico Portfolio",
+  "description": "Full-stack engineering portfolio for Rico Trebeljahr.",
   "icons": [
     {
       "src": "/icons/favicon.ico",
