@@ -1,5 +1,6 @@
 import { corsHeaders, isAllowedOrigin, preflightHeaders } from "./lib/cors";
 import { jsonError } from "./lib/http";
+import { handleContact } from "./routes/contact";
 import type { Env, RouteHandler } from "./types";
 
 /**
@@ -10,7 +11,9 @@ import type { Env, RouteHandler } from "./types";
  * means a new module under src/routes, an entry in ROUTES, and that site's
  * origins in src/lib/cors.ts.
  */
-const ROUTES: Record<string, Partial<Record<string, RouteHandler>>> = {};
+const ROUTES: Record<string, Partial<Record<string, RouteHandler>>> = {
+  "/contact": { POST: handleContact },
+};
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
