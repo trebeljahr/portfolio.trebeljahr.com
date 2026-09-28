@@ -6,7 +6,7 @@
   // cannot run server code, so anything needing a secret lives here.
   "name": "forms-api",
   "main": "src/index.ts",
-  "compatibility_date": "2026-09-29",
+  "compatibility_date": "2026-09-28",
 
   // Adding a `routes` entry silently disables the workers.dev URL unless
   // this is set explicitly. (See the migration playbook.)

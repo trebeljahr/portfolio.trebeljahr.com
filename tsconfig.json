@@ -25,5 +25,8 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.mts"],
-  "exclude": ["node_modules"]
+  // workers/ is a separate deployment target with its own tsconfig and
+  // Worker-runtime types. Type-checking it as part of the site build fails on
+  // globals the browser/Node libs do not declare.
+  "exclude": ["node_modules", "workers"]
 }
