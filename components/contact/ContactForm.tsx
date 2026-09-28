@@ -3,12 +3,25 @@ import { BsFillSendFill } from "react-icons/bs";
 import { type ToastOptions, toast } from "react-toastify";
 import FormInput from "../reusable/FormInput";
 
+/**
+ * The site is a static export, so this is inlined at build time and cannot be
+ * changed without a rebuild. Override it in .env.local (or in the Cloudflare
+ * build environment) to point at a different deployment of the forms Worker.
+ * See workers/forms/README.md.
+ */
+const CONTACT_ENDPOINT =
+  process.env.NEXT_PUBLIC_CONTACT_ENDPOINT || "https://forms-api.ricoslabs.workers.dev/contact";
+
+/** Honeypot. Hidden from real users; bots that fill every input trip it. */
+const HONEYPOT_FIELD = "company";
+
 export function ContactForm() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
+    [HONEYPOT_FIELD]: "",
   });
 
   const [emailIsSending, setEmailIsSending] = useState(false);
@@ -60,13 +73,10 @@ export function ContactForm() {
           from: formState.email,
           subject: formState.subject,
           text: formState.message,
+          [HONEYPOT_FIELD]: formState[HONEYPOT_FIELD],
         };
 
-        // TODO(contact-endpoint): `output: "export"` drops pages/api/contact.ts, so this
-        // path 404s on Cloudflare. Rico decides the replacement: a shared Cloudflare
-        // Worker holding MAILGUN_API_KEY, a hosted form endpoint, or keeping the
-        // function on Vercel. Point this URL at whatever wins.
-        const response = await fetch("/api/contact", {
+        const response = await fetch(CONTACT_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -77,7 +87,7 @@ export function ContactForm() {
           throw new Error(data.error);
         }
 
-        setFormState({ name: "", email: "", subject: "", message: "" });
+        setFormState({ name: "", email: "", subject: "", message: "", [HONEYPOT_FIELD]: "" });
         setHasTriedSending(false);
         toast("🦄 Your message is on it's way", toastOptions);
       } catch (_error) {
@@ -165,6 +175,25 @@ export function ContactForm() {
               value={formState.message}
               aria-label="Message"
               onChange={updateFormState}
+            />
+          </div>
+
+          {/*
+            Honeypot. Positioned off-screen rather than display:none, because
+            some bots skip hidden inputs but fill ones they can measure. Not in
+            the tab order and not announced to screen readers, so nobody using
+            the form the normal way can reach it.
+          */}
+          <div aria-hidden="true" style={{ position: "absolute", left: "-9999px" }}>
+            <label htmlFor={HONEYPOT_FIELD}>Company</label>
+            <input
+              type="text"
+              id={HONEYPOT_FIELD}
+              name={HONEYPOT_FIELD}
+              value={formState[HONEYPOT_FIELD]}
+              onChange={updateFormState}
+              tabIndex={-1}
+              autoComplete="off"
             />
           </div>
 
