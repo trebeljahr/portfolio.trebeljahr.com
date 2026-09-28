@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Shared form-handling backend for all of Rico's static sites. Deployed
+  // separately from any site: `npx wrangler deploy` from this directory.
+  // The sites themselves are static exports on Workers Static Assets and
+  // cannot run server code, so anything needing a secret lives here.
+  "name": "forms-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-29",
+
+  // Adding a `routes` entry silently disables the workers.dev URL unless
+  // this is set explicitly. (See the migration playbook.)
+  "workers_dev": true,
+
+  "observability": {
+    "enabled": true
+  },
+
+  // Native Workers rate limiting (GA since 2025-09-19). No storage, no
+  // subrequest, no free-tier write quota to exhaust. See src/lib/ratelimit.ts
+  // for why this beat a KV counter.
+  //
+  // `period` accepts only 10 or 60 seconds. Limits are per Cloudflare
+  // location, not global — hence the second, coarser global limiter, which
+  // caps the blast radius any single colo can produce.
+  "ratelimits": [
+    {
+      "name": "RATE_LIMIT_IP",
+      "namespace_id": "1001",
+      "simple": { "limit": 3, "period": 60 }
+    },
+    {
+      "name": "RATE_LIMIT_GLOBAL",
+      "namespace_id": "1002",
+      "simple": { "limit": 30, "period": 60 }
+    }
+  ],
+
+  // Secrets are NEVER in this file. Set them with:
+  //   npx wrangler secret put MAILGUN_API_KEY
+  "vars": {
+    "MAILGUN_REGION_BASE": "https://api.eu.mailgun.net/v3"
+  }
+}
