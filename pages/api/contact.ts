@@ -1,3 +1,8 @@
+// TODO(contact-endpoint): dead code under `output: "export"`. `next build` excludes
+// API routes from out/, so this handler no longer ships anywhere. It is kept verbatim
+// as the reference implementation (Mailgun EU, MAILGUN_API_KEY) for whichever host
+// Rico picks. Delete it once the replacement endpoint is live.
+
 import formData from "form-data";
 import Mailgun from "mailgun.js";
 import type { NextApiRequest, NextApiResponse } from "next";

@@ -62,6 +62,10 @@ export function ContactForm() {
           text: formState.message,
         };
 
+        // TODO(contact-endpoint): `output: "export"` drops pages/api/contact.ts, so this
+        // path 404s on Cloudflare. Rico decides the replacement: a shared Cloudflare
+        // Worker holding MAILGUN_API_KEY, a hosted form endpoint, or keeping the
+        // function on Vercel. Point this URL at whatever wins.
         const response = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
