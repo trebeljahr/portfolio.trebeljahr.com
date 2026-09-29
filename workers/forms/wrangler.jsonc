@@ -37,8 +37,16 @@
   ],
 
   // Secrets are NEVER in this file. Set them with:
-  //   npx wrangler secret put MAILGUN_API_KEY
+  //   npx wrangler secret put LISTMONK_API_TOKEN
+  //   npx wrangler secret put MAILGUN_API_KEY   (unused, removed once Listmonk delivery is confirmed)
   "vars": {
+    // All mail goes out through Listmonk's /api/tx, which relays via SES eu-west-1.
+    "LISTMONK_URL": "https://listmonk.trebeljahr.com",
+    // API user on a role that grants only `tx:send`.
+    "LISTMONK_API_USER": "forms-api",
+    // `forms-api-tx`: subject `{{ .Tx.Data.subject }}`, body `{{ .Tx.Data.body | Safe }}`.
+    // No HTML wrapper, because the Worker sends content_type "plain".
+    "LISTMONK_TX_TEMPLATE_ID": 15,
     "MAILGUN_REGION_BASE": "https://api.eu.mailgun.net/v3"
   }
 }

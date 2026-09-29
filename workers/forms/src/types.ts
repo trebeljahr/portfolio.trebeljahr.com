@@ -8,6 +8,17 @@ export interface RateLimiter {
 }
 
 export interface Env {
+  /** Self-hosted Listmonk. It relays through Amazon SES eu-west-1. */
+  LISTMONK_URL: string;
+  /** Listmonk API user whose role grants only `tx:send`. */
+  LISTMONK_API_USER: string;
+  /**
+   * Set out of band, never committed:
+   *   npx wrangler secret put LISTMONK_API_TOKEN
+   */
+  LISTMONK_API_TOKEN?: string;
+  /** Plain-text passthrough tx template, `forms-api-tx` in Listmonk. */
+  LISTMONK_TX_TEMPLATE_ID: number;
   /**
    * Set out of band, never committed:
    *   npx wrangler secret put MAILGUN_API_KEY

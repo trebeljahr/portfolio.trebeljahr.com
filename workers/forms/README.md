@@ -13,7 +13,7 @@ separately from any site and is not part of the portfolio build.
 
 | Method | Path | Purpose |
 |---|---|---|
-| `POST` | `/contact` | portfolio.trebeljahr.com contact form → email via Mailgun EU |
+| `POST` | `/contact` | portfolio.trebeljahr.com contact form → email via Listmonk and SES |
 | `OPTIONS` | `/contact` | CORS preflight |
 
 ### `POST /contact`
@@ -49,19 +49,30 @@ Responses:
 | `413` | Body over 16 KiB |
 | `415` | `Content-Type` is not `application/json` |
 | `429` | Rate limited — `Retry-After: 60` |
-| `502` | Mailgun rejected the message or was unreachable |
-| `503` | `MAILGUN_API_KEY` is not set |
+| `502` | Listmonk rejected the message or was unreachable |
+| `503` | `LISTMONK_API_TOKEN` is not set |
 
 Error messages name the offending field but never quote its value, so the
 response cannot reflect submitted input back at a third party.
 
 ## Setup
 
-The Mailgun key is a secret. It is never in this repo, in `wrangler.jsonc`, or
-in a log line. Set it once per Worker:
+Mail goes out through the self-hosted Listmonk at
+`https://listmonk.trebeljahr.com` (`POST /api/tx`), which relays via Amazon SES
+eu-west-1. The Worker needs two things in Listmonk:
+
+- **Tx template `forms-api-tx`** (id 15): subject `{{ .Tx.Data.subject }}`,
+  body `{{ .Tx.Data.body | Safe }}` and nothing else. The Worker sends
+  `content_type: "plain"`, so an HTML wrapper would arrive as visible markup.
+- **API user `forms-api`** on a role that grants only `tx:send`. That is the
+  one permission `/api/tx` checks.
+
+URL, user name and template id are plain `vars` in `wrangler.jsonc`. The API
+token is a secret. It is never in this repo, in `wrangler.jsonc`, or in a log
+line. Set it once per Worker:
 
 ```bash
-npx wrangler secret put MAILGUN_API_KEY
+npx wrangler secret put LISTMONK_API_TOKEN
 ```
 
 Then deploy:
@@ -70,20 +81,32 @@ Then deploy:
 npx wrangler deploy
 ```
 
-For local development, put the key in `.dev.vars` (gitignored) and run
+For local development, put the token in `.dev.vars` (gitignored) and run
 `npx wrangler dev`.
 
 ## Mail behaviour
 
-Messages are sent from a fixed address at `portfolio.trebeljahr.com`, the
-domain whose MX and SPF records already point at Mailgun. The visitor's
-address goes in `Reply-To`, so replying reaches them. Sending *from* the
-visitor's address — which the previous Next.js handler did — fails SPF
-alignment and has no valid DKIM signature for its own `From` domain, which is
-what a spoofed message looks like to a receiver.
+Messages are sent from `noreply@mail.portfolio.trebeljahr.com`. That domain is
+an SES identity with Easy DKIM and the custom MAIL FROM
+`bounce.mail.portfolio.trebeljahr.com`, so SPF and DKIM both align with the
+From address. The visitor's address goes in `Reply-To`, so replying reaches
+them. Sending *from* the visitor's address — which the previous Next.js handler
+did — fails SPF alignment and has no valid DKIM signature for its own `From`
+domain, which is what a spoofed message looks like to a receiver.
 
 Messages are plain text only. The previous handler also sent the body as
 `html`, rendering unescaped visitor input in the reader's mail client.
+
+The visitor's subject is passed as template data, never as `/api/tx`'s own
+`subject` field: Listmonk compiles a `subject` that contains `{{` as a Go
+template.
+
+Listmonk answers `200` once the message is queued, before SMTP runs. A `200`
+from this Worker therefore means "accepted by Listmonk", not "delivered". An
+SES rejection after that point shows only in Listmonk → Settings → Logs.
+
+SES is still in its sandbox, so it only delivers to verified addresses. The
+contact form's one recipient is verified.
 
 ## Abuse protection
 
@@ -113,7 +136,7 @@ No CAPTCHA.
 4. Add any new secret with `npx wrangler secret put <NAME>`.
 
 Everything reusable — CORS, bounded body reads, field validation, rate
-limiting, the Mailgun client — already lives in `src/lib/`.
+limiting, the Listmonk client — already lives in `src/lib/`.
 
 ## Layout
 
@@ -126,7 +149,8 @@ src/
     http.ts         # JSON responses, bounded body read
     validate.ts     # field specs, email check, honeypot
     ratelimit.ts    # native binding wrapper
-    mailgun.ts      # Mailgun EU REST via fetch + FormData
+    listmonk.ts     # Listmonk /api/tx via fetch
+    mailgun.ts      # unused; removed once Listmonk delivery is confirmed
   routes/
     contact.ts      # POST /contact
 ```
