@@ -27,7 +27,7 @@ Open [http://localhost:3801](http://localhost:3801).
 ```
 components/
   about/        # Bio, client logos, stats
-  contact/      # Contact form (Mailgun)
+  contact/      # Contact form (posts to the forms Worker)
   logos/         # SVG company logos (ESA, Klarna, Henkel, flowkey, Ironhack, Softgames)
   projects/     # Project grid and cards
   shared/       # Header, footer, banner
@@ -37,7 +37,6 @@ data/
 pages/
   index.tsx     # Home
   cv.tsx        # CV / resume
-  api/contact.ts    # Dead under `output: "export"`; kept as reference only
 workers/
   forms/        # Shared forms Worker — deployed separately, not part of the site build
 ```
@@ -55,7 +54,7 @@ the static export at build time, so changing one needs a rebuild and redeploy.
 
 The static export ships no API routes, so the form posts to the shared
 `forms-api` Worker instead of a local `/api/contact`. That Worker holds the
-Mailgun credential, validates and rate-limits submissions, and is deployed on
+Listmonk credential, validates and rate-limits submissions, and is deployed on
 its own — `npm run build` does not touch it.
 
 The origin the form is served from must be in the Worker's allowlist
