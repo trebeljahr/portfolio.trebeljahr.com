@@ -64,7 +64,7 @@ eu-west-1. The Worker needs two things in Listmonk:
 - **Tx template `forms-api-tx`** (id 15): subject `{{ .Tx.Data.subject }}`,
   body `{{ .Tx.Data.body | Safe }}` and nothing else. The Worker sends
   `content_type: "plain"`, so an HTML wrapper would arrive as visible markup.
-- **API user `forms-api`** on a role that grants only `tx:send`. That is the
+- **API user `portfolio-form`** on a role that grants only `tx:send`. That is the
   one permission `/api/tx` checks.
 
 URL, user name and template id are plain `vars` in `wrangler.jsonc`. The API

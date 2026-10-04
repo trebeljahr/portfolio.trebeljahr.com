@@ -43,7 +43,7 @@
     // All mail goes out through Listmonk's /api/tx, which relays via SES eu-west-1.
     "LISTMONK_URL": "https://listmonk.trebeljahr.com",
     // API user on a role that grants only `tx:send`.
-    "LISTMONK_API_USER": "forms-api",
+    "LISTMONK_API_USER": "portfolio-form",
     // `forms-api-tx`: subject `{{ .Tx.Data.subject }}`, body `{{ .Tx.Data.body | Safe }}`.
     // No HTML wrapper, because the Worker sends content_type "plain".
     "LISTMONK_TX_TEMPLATE_ID": 15,
