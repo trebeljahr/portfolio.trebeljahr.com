@@ -9,6 +9,17 @@ const withPWA = require("@ducanh2912/next-pwa").default({
   // aborts the service worker install. Setting this replaces the default, so
   // `noprecache` is listed again.
   publicExcludes: ["!noprecache/**/*", "!_headers", "!_redirects"],
+  workboxOptions: {
+    // The plugin's defaults, plus dynamic-css-manifest.json: newer Next.js emits
+    // it as a build-only file that `output: "export"` never ships, and the
+    // plugin's own filter predates it.
+    exclude: [
+      /\/_next\/static\/.*(?<!\.p)\.woff2/,
+      /\.map$/,
+      /^manifest.*\.js$/,
+      /dynamic-css-manifest\.json$/,
+    ],
+  },
 });
 
 const nextConfig = {
