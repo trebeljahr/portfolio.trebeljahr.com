@@ -11,6 +11,7 @@ const routes = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/cv", changefreq: "monthly", priority: "0.8" },
   { path: "/imprint", changefreq: "yearly", priority: "0.2" },
+  { path: "/privacy", changefreq: "yearly", priority: "0.2" },
 ];
 
 function absoluteUrl(path) {

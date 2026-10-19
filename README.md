@@ -37,6 +37,8 @@ data/
 pages/
   index.tsx     # Home
   cv.tsx        # CV / resume
+  imprint.tsx   # Legal notice
+  privacy.tsx   # Every host the browser contacts and every key it stores
 workers/
   forms/        # Shared forms Worker — deployed separately, not part of the site build
 ```
@@ -61,6 +63,13 @@ The origin the form is served from must be in the Worker's allowlist
 (`workers/forms/src/lib/cors.ts`), including `localhost` for development.
 
 Setup and deployment: [`workers/forms/README.md`](workers/forms/README.md).
+
+## Privacy page
+
+`/privacy` names every host a visitor's browser contacts and everything the site
+stores in the browser. A new third-party request (script, font, image, embed,
+`fetch` call), a new storage key, or another host in `NEXT_PUBLIC_CONTACT_ENDPOINT`
+updates `pages/privacy.tsx` and its `UPDATED_ON` in the same change.
 
 ## Scripts
 

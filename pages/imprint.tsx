@@ -63,6 +63,22 @@ export default function ImprintPage() {
 
         <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-general-medium text-primary-dark dark:text-primary-light mb-3">
+            Data Protection
+          </h2>
+          <p className="text-lg text-ternary-dark dark:text-ternary-light leading-relaxed">
+            The{" "}
+            <Link
+              href="/privacy"
+              className="text-secondary-dark dark:text-secondary-light hover:text-indigo-600 dark:hover:text-indigo-300 hover:underline"
+            >
+              privacy policy
+            </Link>{" "}
+            lists every server your browser contacts on this site and what each one receives.
+          </p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-general-medium text-primary-dark dark:text-primary-light mb-3">
             Person Responsible for Content (§ 18 (2) MStV)
           </h2>
           <p className="text-lg text-ternary-dark dark:text-ternary-light leading-relaxed">

@@ -13,12 +13,18 @@ function AppFooterCopyright() {
           Rico Trebeljahr
         </a>
       </div>
-      <div className="text-sm text-ternary-dark dark:text-ternary-light">
+      <div className="flex gap-4 text-sm text-ternary-dark dark:text-ternary-light">
         <Link
           href="/imprint"
           className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 duration-500"
         >
           Imprint
+        </Link>
+        <Link
+          href="/privacy"
+          className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 duration-500"
+        >
+          Privacy
         </Link>
       </div>
     </div>
