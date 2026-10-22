@@ -22,7 +22,7 @@ export default function CVPage() {
           />
           <div>
             <div className={styles["cv-name-heading"]}>
-              <h1 className={`${styles["cv-job-title"]}`}>Fullstack Engineer</h1>
+              <h1 className={`${styles["cv-job-title"]}`}>Software Engineering Consultant</h1>
               <h2 className={styles["cv-black-heading"]}>Rico Trebeljahr</h2>
             </div>
             <div className={styles["cv-contact-info"]}>
@@ -44,9 +44,10 @@ export default function CVPage() {
         <div className={styles["cv-section"]}>
           <h3>About Me</h3>
           <p>
-            Self-taught fullstack engineer with production experience at ESA, Klarna, and Henkel. I
-            pick up new tech stacks quickly (Go, Python, GLSL) and have multiple deployed personal
-            projects, all open source on GitHub.
+            Software engineer and consultant for inherited systems, architecture decisions and API
+            integrations. I combine technical investigation with implementation, automated tests,
+            deployment and handover. Recent independent work includes TypeScript products,
+            cross-platform games and developer tools.
           </p>
         </div>
         <div className={`${styles["cv-section"]} ${styles["cv-main-section"]}`}>
@@ -56,22 +57,44 @@ export default function CVPage() {
 
         <div className={styles["cv-section"]}>
           <div>
-            <h3>Independent</h3>
-            <p className={styles["cv-date"]}>2023 &ndash; Present</p>
+            <h3>Ricos Labs LLC</h3>
+            <p className={styles["cv-date"]}>Apr. 2026 &ndash; Present</p>
           </div>
           <p>
-            Built{" "}
+            Founder and full-stack engineer. Product development, developer tooling and technical
+            consulting. Independent product work began in January 2023.
+          </p>
+        </div>
+
+        <div className={styles["cv-section"]}>
+          <div>
+            <h3>Independent</h3>
+            <p className={styles["cv-date"]}>Jan. 2023 &ndash; Present</p>
+          </div>
+          <p>
+            Built the initial version of{" "}
             <a href="https://playtiao.com" className="hover-underline-animation">
               Tiao
             </a>
-            , a multiplayer strategy game, in 2 weeks. Real-time WebSocket gameplay, ELO
-            matchmaking, auth, payments, analytics. Deployed on Hetzner with Terraform and CI/CD.
-            Also built 39 interactive 3D web demos with React Three Fiber and custom GLSL shaders,
-            and a custom publishing platform (
+            , a multiplayer strategy game, in 2 weeks. Continued product work followed. Real-time
+            WebSocket gameplay, ELO matchmaking, auth, payments, analytics. Deployed on Hetzner with
+            Terraform and CI/CD. Also built 40+ interactive 3D web demos with React Three Fiber and
+            custom GLSL shaders, and a custom publishing platform (
             <a href="https://ricos.site" className="hover-underline-animation">
               ricos.site
             </a>
             ) serving 300+ pages with newsletter infrastructure.
+          </p>
+        </div>
+
+        <div className={styles["cv-section"]}>
+          <div>
+            <h3>Confidential client</h3>
+            <p className={styles["cv-date"]}>Dec. 2025; Apr. 2026; Jul. 2026</p>
+          </div>
+          <p>
+            Freelance software development: built third-party integrations for KYC workflows across
+            three engagements.
           </p>
         </div>
 
@@ -89,7 +112,7 @@ export default function CVPage() {
         <div className={styles["cv-section"]}>
           <div>
             <h3>Henkel Dx</h3>
-            <p className={styles["cv-date"]}>Mar. &ndash; Oct. 2023</p>
+            <p className={styles["cv-date"]}>Apr. &ndash; Nov. 2023</p>
           </div>
           <p>
             Sole developer on an enterprise data pipeline processing 100k+ events/day. Azure Cloud
@@ -104,9 +127,8 @@ export default function CVPage() {
             <p className={styles["cv-date"]}>Jan. 2022 &ndash; Jun. 2023</p>
           </div>
           <p>
-            Lead teacher. Taught 60+ career changers fullstack JavaScript across 3 bootcamp cohorts,
-            taking them from zero to deployed full-stack apps in 9 weeks. Majority landed developer
-            roles.
+            Lead teacher. Taught 50+ career changers fullstack JavaScript across 3 bootcamp cohorts:
+            two nine-week intensives and one six-month part-time course.
           </p>
         </div>
         <div className={styles["cv-section"]}>
@@ -116,14 +138,15 @@ export default function CVPage() {
           </div>
           <p>
             Built satellite collision-avoidance tools for the European Space Agency. Unified orbit
-            data pipeline across 10-20 tools and all major formats. Modernized CI/CD and testing.
-            Learned production Python (Flask, SQLAlchemy) on the job within weeks.
+            data handling across multiple command-line tools and orbit file formats. Modernized
+            CI/CD and testing. Learned production Python (Flask, SQLAlchemy) on the job within
+            weeks.
           </p>
         </div>
         <div className={styles["cv-section"]}>
           <div>
             <h3>Klarna</h3>
-            <p className={styles["cv-date"]}>Jan. &ndash; Jul. 2021</p>
+            <p className={styles["cv-date"]}>Jan. &ndash; Jun. 2021</p>
           </div>
           <p>
             Software Engineer II. Built E2E testing infrastructure from scratch for Klarna&apos;s
@@ -137,9 +160,9 @@ export default function CVPage() {
             <p className={styles["cv-date"]}>Jun. 2019 &ndash; Apr. 2020</p>
           </div>
           <p>
-            Backend developer. Led architecture selection and implementation for a Snapchat
-            multiplayer quiz game. Learned Go in 2 weeks, built real-time matchmaking and state sync
-            on Nakama, designed for 10M DAU on Google Cloud. Co-led a 2-person backend team.
+            Junior software engineer. Compared multiplayer backend options against scalability, cost
+            and team expertise. Presented a Go/Nakama recommendation approved by the CTO, then led
+            implementation of matchmaking and state synchronisation in a two-person backend team.
           </p>
         </div>
 
@@ -154,8 +177,8 @@ export default function CVPage() {
             <p className={styles["cv-date"]}>2026</p>
           </div>
           <p>
-            Multiplayer strategy game built in 2 weeks. Real-time WebSocket gameplay, ELO
-            matchmaking, auth, payments, analytics. Open source (AGPL).{" "}
+            Multiplayer strategy game whose initial version shipped in 2 weeks. Real-time WebSocket
+            gameplay, ELO matchmaking, auth, payments, analytics. Open source (AGPL).{" "}
             <a href="https://playtiao.com" className="hover-underline-animation">
               playtiao.com
             </a>
@@ -169,7 +192,7 @@ export default function CVPage() {
           </div>
           <p>
             Interactive exhibition of 37 fractals with custom GPU shaders and L-system generation.
-            157 GitHub stars, Hacker News front page.{" "}
+            Includes interactive parameter controls and explanations of the mathematics.{" "}
             <a href="https://fractal.garden" className="hover-underline-animation">
               fractal.garden
             </a>
@@ -239,7 +262,7 @@ export default function CVPage() {
           <ul>
             <li>
               <a href="https://ricos.site/r3f" className="hover-underline-animation">
-                39 interactive 3D demos
+                40+ interactive 3D demos
               </a>{" "}
               with React Three Fiber and custom GLSL shaders
             </li>
@@ -304,10 +327,9 @@ export default function CVPage() {
         <div className={styles["cv-section"]}>
           <h3>Education</h3>
           <p>
-            Self-taught. Completed freeCodeCamp&apos;s 2-year web development curriculum in ~2
-            months (2019). MIT OCW calculus sequence (18.01, 18.02, 18.03) and linear algebra
-            self-studied. Multiple Coursera ML specializations. 200+ books read across science,
-            philosophy, technology, and business.
+            Self-taught. Studied web development through freeCodeCamp before the first professional
+            software role in 2019. Self-studied calculus, differential equations and linear algebra
+            through MIT OpenCourseWare, plus online machine-learning courses.
           </p>
         </div>
       </div>
