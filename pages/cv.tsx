@@ -188,10 +188,10 @@ export default function CVPage() {
         <div className={styles["cv-section"]}>
           <div>
             <h3>Fractal Garden</h3>
-            <p className={styles["cv-date"]}>2021, expanded 2026</p>
+            <p className={styles["cv-date"]}>2022–2026</p>
           </div>
           <p>
-            Interactive exhibition of 37 fractals with custom GPU shaders and L-system generation.
+            Interactive exhibition of 53 mathematical exhibits with custom GPU shaders and L-system generation.
             Includes interactive parameter controls and explanations of the mathematics.{" "}
             <a href="https://fractal.garden" className="hover-underline-animation">
               fractal.garden
