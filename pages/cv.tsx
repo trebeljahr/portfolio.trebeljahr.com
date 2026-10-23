@@ -285,7 +285,7 @@ export default function CVPage() {
               &ndash; custom publishing platform, 300+ pages, 78-edition newsletter
             </li>
             <li>
-              <a href="https://tic-tac-toe.trebeljahr.com" className="hover-underline-animation">
+              <a href="https://ttt.trebeljahr.com" className="hover-underline-animation">
                 Tic-Tac-Toe
               </a>{" "}
               &amp;{" "}
