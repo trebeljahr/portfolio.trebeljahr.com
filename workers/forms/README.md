@@ -150,7 +150,6 @@ src/
     validate.ts     # field specs, email check, honeypot
     ratelimit.ts    # native binding wrapper
     listmonk.ts     # Listmonk /api/tx via fetch
-    mailgun.ts      # unused; removed once Listmonk delivery is confirmed
   routes/
     contact.ts      # POST /contact
 ```
