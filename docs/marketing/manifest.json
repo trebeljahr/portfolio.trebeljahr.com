@@ -1,0 +1,100 @@
+{
+  "images": [
+    {
+      "file": "screenshots/home-dark.jpg",
+      "width": 3200,
+      "height": 2000,
+      "bytes": 354790,
+      "sha256": "031548669a344e7c4d12cb19f468442c2c3d00f283f94a3fdb5e043c12992e35",
+      "date": "2026-11-06",
+      "source": {
+        "url": "https://portfolio.trebeljahr.com/",
+        "viewport": "1600x1000",
+        "deviceScaleFactor": 2,
+        "theme": "dark",
+        "tool": "scripts/marketing/capture-screenshots.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "screenshots/home-light.jpg",
+      "width": 3200,
+      "height": 2000,
+      "bytes": 341997,
+      "sha256": "0ada3773f2d61efa0d8b4c75f2738bcd2d85c68da6606a2ac22f5219ebcbae22",
+      "date": "2026-11-06",
+      "source": {
+        "url": "https://portfolio.trebeljahr.com/",
+        "viewport": "1600x1000",
+        "deviceScaleFactor": 2,
+        "theme": "light",
+        "tool": "scripts/marketing/capture-screenshots.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "screenshots/home-mobile-light.jpg",
+      "width": 780,
+      "height": 1688,
+      "bytes": 103055,
+      "sha256": "af7b5812d00136b0ddce9deae38d5290fb4917108afead3fd015a835ed1089b9",
+      "date": "2026-11-06",
+      "source": {
+        "url": "https://portfolio.trebeljahr.com/",
+        "viewport": "390x844",
+        "deviceScaleFactor": 2,
+        "theme": "light",
+        "tool": "scripts/marketing/capture-screenshots.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "screenshots/projects-light.jpg",
+      "width": 3200,
+      "height": 2000,
+      "bytes": 448143,
+      "sha256": "183523bde6668e148789b79f98c3964428f37ef2a910a2649c6b065c14270bc5",
+      "date": "2026-11-06",
+      "source": {
+        "url": "https://portfolio.trebeljahr.com/",
+        "viewport": "1600x1000",
+        "deviceScaleFactor": 2,
+        "theme": "light",
+        "tool": "scripts/marketing/capture-screenshots.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "social-preview/social-preview-a.png",
+      "width": 1280,
+      "height": 640,
+      "bytes": 232659,
+      "sha256": "2c697c2f8658c457cbcbd51f40710d98e05d2aaebabb3ab1871ecf652e455e5e",
+      "date": "2026-11-06",
+      "source": {
+        "template": "social-preview/template.html?v=a",
+        "tool": "scripts/marketing/render-social-preview.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "social-preview/social-preview-b.png",
+      "width": 1280,
+      "height": 640,
+      "bytes": 167151,
+      "sha256": "faafd2dfb169b74b16c8e4a5692679bea3f063908ef41ee68d481defc54e8821",
+      "date": "2026-11-06",
+      "source": {
+        "template": "social-preview/template.html?v=b",
+        "tool": "scripts/marketing/render-social-preview.mjs (Playwright Chromium)"
+      }
+    },
+    {
+      "file": "social-preview/social-preview-c.png",
+      "width": 1280,
+      "height": 640,
+      "bytes": 614003,
+      "sha256": "51b73742f4c9852a1957cf0268f439891927cadb9503409a8440f51ef7f76534",
+      "date": "2026-11-06",
+      "source": {
+        "template": "social-preview/template.html?v=c",
+        "tool": "scripts/marketing/render-social-preview.mjs (Playwright Chromium)"
+      }
+    }
+  ]
+}
