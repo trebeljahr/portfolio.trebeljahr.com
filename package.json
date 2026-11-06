@@ -1,10 +1,17 @@
 {
   "name": "portfolio-page",
   "version": "1.0.0",
-  "authors": [
-    "Rico Trebeljahr"
-  ],
+  "description": "Rico Trebeljahr's portfolio as a full-stack engineer: projects, CV and a contact form, as a static Next.js site.",
+  "author": "Rico Trebeljahr",
   "license": "MIT",
+  "homepage": "https://portfolio.trebeljahr.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trebeljahr/portfolio.trebeljahr.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trebeljahr/portfolio.trebeljahr.com/issues"
+  },
   "private": true,
   "packageManager": "pnpm@10.33.2",
   "engines": {
